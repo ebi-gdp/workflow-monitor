@@ -54,7 +54,7 @@ def repost_with_token(message: dict, token=os.environ.get("CALLBACK_TOKEN")):
         post_url = f"https://dev.intervenegeneticscores.org/pipeline-manager/csc" \
                    f"/pipeline/{msg['run_name']}/status"
         header = {"Content-Type": "application/json",
-                  "Authorization": f"Bearer {token}"}
+                  "Authorization": f"Basic {token}"}
         response = requests.post(post_url, data=json.dumps(msg), headers=header)
 
         match response.status_code:
