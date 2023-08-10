@@ -1,4 +1,4 @@
-# `workflow-monitor `
+# `workflow-monitor`
 
 A simple python program to monitor a nextflow workflow running locally and send status updates to the INTERVENE platform backend.
 
@@ -16,7 +16,7 @@ The only dependency is the `requests` library and python `3.10`.
 
 ```
 $ module load python-data/3.10-23.07 # provides dependencies
-$ export MONITOR_TOKEN=<...>
+$ export CALLBACK_TOKEN=<...>
 $ python3 /path/to/main.py & # run in background
 $ nextflow run ... -with-weblog http://localhost:8000
 ```

@@ -43,7 +43,7 @@ def filter_message(message: dict):
             yield filtered_msg | trace
 
 
-def repost_with_token(message: dict, token=os.environ.get("MONITORING_TOKEN")):
+def repost_with_token(message: dict, token=os.environ.get("CALLBACK_TOKEN")):
     # use a generator here to simplify ignoring 99% of messages in an infinite stream
     for msg in filter_message(message):
         if 'INTP' not in msg['run_name']:
@@ -72,8 +72,8 @@ def run(server_class=HTTPServer, handler_class=JSONRequestHandler):
 
 
 def main():
-    if os.environ.get("MONITORING_TOKEN") is None:
-        logger.critical("Environment variable MONITORING_TOKEN not set, exiting")
+    if os.environ.get("CALLBACK_TOKEN") is None:
+        logger.critical("Environment variable CALLBACK_TOKEN not set, exiting")
         sys.exit(1)
 
     # run a local HTTP server forever (until parent process terminates)
