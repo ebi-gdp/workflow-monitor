@@ -14,3 +14,6 @@ pre-commit = "^3.3.3"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+workflow_monitor = 'workflow_monitor:main.main'
