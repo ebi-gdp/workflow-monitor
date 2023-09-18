@@ -87,10 +87,15 @@ def run(server_class=HTTPServer, handler_class=JSONRequestHandler):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--callback_token", help="token to communicate with platform backend"
+        "--callback_token",
+        required=True,
+        help="token to communicate with platform backend",
     )
     parser.add_argument(
-        "--namespace", type=PlatformNameSpace.argparse, choices=list(PlatformNameSpace)
+        "--namespace",
+        required=True,
+        type=PlatformNameSpace.argparse,
+        choices=list(PlatformNameSpace),
     )
     args = parser.parse_args()
     Config.namespace = args.namespace
